@@ -17,6 +17,7 @@ public class StudentEntity {
     private String address;
     private String dateOfBirth;
     private String gender;
-    private Integer phoneNumber;
-    private int nic;
+    private String email;
+    private String phoneNumber;
+    private String nic;
 }
