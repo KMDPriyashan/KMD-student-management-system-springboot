@@ -10,13 +10,14 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("student")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class StudentController {
     final StudentServiceimpl service;
 
     @PostMapping("/add")
-    public void addStudent(@RequestBody StudentDTO studentDTO){
+    public Boolean addStudent(@RequestBody StudentDTO studentDTO){
         service.addStudent(studentDTO);
+        return true;
     }
 
     @GetMapping("/get/{id}")

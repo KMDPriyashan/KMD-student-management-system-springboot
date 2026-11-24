@@ -15,8 +15,9 @@ public class CourseEntity {
     private String code;
     private String name;
     private String description;
-    private int credit;
-    private int maxCapacity;
+    private String fee;
+    private String credit;
+    private String duration;
 
 
 }

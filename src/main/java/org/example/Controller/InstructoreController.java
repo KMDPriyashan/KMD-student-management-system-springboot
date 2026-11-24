@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("instructor")
 @RequiredArgsConstructor
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class InstructoreController {
 
     final InstructoreService service;
