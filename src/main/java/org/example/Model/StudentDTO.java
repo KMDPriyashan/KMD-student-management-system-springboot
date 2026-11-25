@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 
-public class Student {
+public class StudentDTO {
     private String indexNumber;
     private String fullName;
     private String address;
