@@ -1,21 +1,42 @@
 package org.example.Controller;
 
-import org.example.Model.Student;
-import org.example.Services.StudentServiceimpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
+import org.example.Model.StudentDTO;
+import org.example.Services.impl.StudentServiceimpl;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
+@RequestMapping("student")
+@CrossOrigin
 public class StudentController {
-    @Autowired
-    StudentServiceimpl service;
+    final StudentServiceimpl service;
 
-    @GetMapping("/create/student")
-    public void createStudent(@RequestBody Student student){
-        service.createStudent(student);
+    @PostMapping("/add")
+    public void addStudent(@RequestBody StudentDTO studentDTO){
+        service.addStudent(studentDTO);
+    }
 
+    @GetMapping("/get/{id}")
+    public StudentDTO getStudentById(@PathVariable Integer id){
+        return service.getStudentById(id);
+    }
+
+    @GetMapping("/get-all")
+    public List<StudentDTO> getAllStudent(){
+        return service.getAllStudent();
+    }
+
+    @PostMapping("/update")
+    public void updateStudent(StudentDTO studentDTO){
+        service.updateStudent(studentDTO);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteStudentById(@PathVariable Integer id){
+        service.deleteStudentById(id);
     }
 
 }
